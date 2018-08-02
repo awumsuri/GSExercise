@@ -32,9 +32,12 @@ export const MultiQuestionView = (props) => (
     </div>   
 )
 
-export const Footer = (props) => (
+export const FooterView = (props) => (
     <div>
-        <button name="back" onClick={props.onClick}>Back</button>
+        {
+            (props.page > 0) && 
+            (<button name="back" onClick={props.onClick}>Back</button>)
+        }
     </div>
 )
 

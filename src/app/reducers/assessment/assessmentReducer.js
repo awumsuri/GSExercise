@@ -1,12 +1,17 @@
-export const GET_QUESTIONS = "GET_QUESTIONS"
+export const NEXT_QUESTION = "NEXT_QUESTION"
+export const REMOVE_ANSWER = "REMOVE_ANSWER"
 
-export const assessmentReducer = (state={}, action) => {
+export const assessmentReducer = (state=[], action) => {
     switch(action.type) {
-        case GET_QUESTIONS:
-            return {
-                ...state,
-                questions: action.questions
-            }
+        case NEXT_QUESTION:
+            return [
+                ...state.answers,
+                action.answer
+            ]
+        case REMOVE_ANSWER:
+            return state.filter(
+                answer => answer.id !== action.answer.id
+            )
         default:
             return state
     }

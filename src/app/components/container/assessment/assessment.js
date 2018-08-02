@@ -1,19 +1,21 @@
 import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { HeaderView, BiQuestionView, MultiQuestionView } from '../../presentation/assessment/Views'
+import { HeaderView, BiQuestionView, MultiQuestionView, FooterView } from '../../presentation/assessment/Views'
 import Service from '../../../services/assessment/'
+import { storeAnswer, removeAnswer } from '../../../actions/assessment/assessmentActions'
 
 class Assessment extends PureComponent {
 
     constructor(props) {
         super()
         this.questions = null
-        this.currentIndex = 0;
-        this.nextQuestion = this.nextQuestion.bind(this)
+        this.answer = this.answer.bind(this)
+        this.previousQuestion = this.previousQuestion.bind(this)
     }
 
     state = {
-        question: null
+        question: null,
+        answers: []
     }
 
     componentWillMount() {
@@ -25,13 +27,17 @@ class Assessment extends PureComponent {
         ) 
     }
 
-    nextQuestion() {
-        const question = this.questions[this.currentIndex]
-        this.setState({question})
-        this.currentIndex++
+    answer() {
+        const { dispatchAnswer } = this.props.asssessment
+        dispatchAnswer(answer)
     }
 
-    previousQuestion() {
+    removeAnswer() {
+        const { dispatchRemoveAnswer } = this.props.asssessment
+        dispatchRemoveAnswer(answer)
+    }
+
+    accumilateScore(sign) {
 
     }
 
@@ -46,21 +52,28 @@ class Assessment extends PureComponent {
                     <BiQuestionView 
                         heading={question.heading} 
                         question={question.question} 
-                        onClick={this.nextQuestion}
+                        onClick={this.answer}
                     /> : 
                     <MultiQuestionView 
                         heading={question.heading} 
                         question={question.question} 
                         options={question.options} 
-                        onClick={this.nextQuestion}
+                        onClick={this.answer}
                     />)
                 }
+                <FooterView onClick={this.removeAnswer} page={this.state.answers.length} />
             </Fragment>
         )
     }
 }
 
 const mapStateToProps = state => ({...state})
-const mapDispatchToProps = dispatch => ( { dispatch } ) 
+const mapDispatchToProps = dispatch => ( 
+    { 
+        dispatchAnswer: answer => dispatch(storeAnswer(answer)),
+        dispatchRemoveAnswer: answer => dispatch(removeAnswer(answer))
+    }
+)
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Assessment)

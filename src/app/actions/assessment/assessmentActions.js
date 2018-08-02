@@ -1,12 +1,11 @@
-import Services from '../../services/assessment/assessment'
-import { GET_QUESTIONS } from '../../reducers/assessment/assessmentReducer'
+import { NEXT_QUESTION, REMOVE_ANSWER } from '../../reducers/assessment/assessmentReducer'
 
-export const getQuestions = async (dispatch) => {
-    const questions = await getQuestions()
+export const storeAnswer = (answer) => ({
+    type: NEXT_QUESTION,
+    answer
+})
 
-    dispatch({
-        type: GET_QUESTIONS,
-        questions
-    })
-
-} 
+export const removeAnswer = (answer) => ({
+    type: REMOVE_ANSWER,
+    answer
+})
