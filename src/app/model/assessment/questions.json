@@ -2,6 +2,35 @@
     {
         "heading": "Heading",
         "question": "question",
-        "answer": "yes"
+        "type": "bichoice",
+        "options": [
+            {
+                "label": "yes",
+                "value": 0,
+                "isCorrect": false
+            },
+            {
+                "label": "no",
+                "value": 3,
+                "isCorrect": true
+            }
+        ]        
+    },
+    {
+        "heading": "Heading 2",
+        "question": "question 2",
+        "type": "bullet",
+        "options": [
+            {
+                "label": "yes",
+                "value": 0,
+                "isCorrect": false
+            },
+            {
+                "label": "no",
+                "value": 3,
+                "isCorrect": true
+            }
+        ]        
     }
 ]
