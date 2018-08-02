@@ -17,9 +17,13 @@ class Login extends PureComponent {
     }
 
     handleOnInputChange(event) {
-        const name = event.target.name
+
+        const input = event.target
+        const name = input.name
+        const value = name !== 'password' ? input.value.toLowerCase() : input.value
+
         this.setState({
-            [name]: event.target.value
+            [name]: value
         })
     }
 
@@ -32,7 +36,7 @@ class Login extends PureComponent {
     }
 
     render() {
-        const { authenthicated } = this.props.auth
+        const { authenticated } = this.props.auth
         return (
             <LoginView onClick={this.handleClick} onChange={this.handleOnInputChange} />
         )
