@@ -7,7 +7,7 @@ import Exam from '../exam/exam'
 class Login extends PureComponent {
     constructor(props) {
         super(props)  
-        this.handleClick = this.handleClick.bind(this)
+        this.handleSubmitClick = this.handleSubmitClick.bind(this)
         this.handleOnInputChange = this.handleOnInputChange.bind(this)    
     }
 
@@ -28,7 +28,7 @@ class Login extends PureComponent {
         })
     }
 
-    handleClick() {
+    handleSubmitClick() {
         const { dispatchLogin } = this.props
         const { username, password } = this.state
         
@@ -40,7 +40,9 @@ class Login extends PureComponent {
         const { username } = this.state
 
         return (
-           authenticate ? <Exam username={username}/> : <LoginView onClick={this.handleClick} onChange={this.handleOnInputChange} /> 
+           authenticated ?
+            <Exam username={username}/> : 
+            <LoginView authenticated={authenticated} onClick={this.handleSubmitClick} onChange={this.handleOnInputChange} /> 
         )
     }
 }

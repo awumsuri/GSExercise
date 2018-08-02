@@ -1,15 +1,20 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { HeaderView } from '../../presentation/exam/Views'
 
-class Exam extends Component {
+class Exam extends PureComponent{
     constructor(props) {
         super()
     }
 
     render() {
-
+       return (
+            <HeaderView username={this.props.username} />
+       )
     }
-
 }
 
-export default connect()()(Exam)
+const mapStateToProps = state => ({state})
+const mapDispatchToProps = dispatch => ({dispatch})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Exam)

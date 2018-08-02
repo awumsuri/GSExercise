@@ -18,5 +18,10 @@ export const LoginView = (props) => (
         <button onClick={props.onClick}
             title="submit"
         />   
+        <div>
+            {(props.authenticated === false) && (
+                <error>Incorrect Creditentials</error>
+             )}
+        </div>
     </div>
 )
