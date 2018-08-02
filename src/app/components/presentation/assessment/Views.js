@@ -8,22 +8,46 @@ export const HeaderView = (props) => (
 
 export const BiQuestionView = (props) => (
     <div>
-        <div><span>{props.heading}</span></div>
-        <div><span><p>{props.question}</p></span></div>
+        <QuestionView heading={props.heading} question={props.question}/>
         <div>
-            <button name="yes" onClick={this.props.onClick}> Yes </button>
-            <button name="no" onClick={this.props.onClick}> No </button>
+            <button name="yes" onClick={props.onClick}> Yes </button>
+            <button name="no" onClick={props.onClick}> No </button>
         </div>
     </div>
 )
 
 export const MultiQuestionView = (props) => (
     <div>
-        <div><span>{props.heading}</span></div>
-        <div><span><p>{props.question}</p></span></div>
-        <ul>
-            {props.questions.map(question => (<li>{question}</li>))}
-        </ul>
+        <QuestionView heading={props.heading} question={props.question}/>
+        <ol type="A">
+            {props.options.map(
+                (option, index) => (
+                <li key={index} onClick={props.onClick}>
+                    {option.answer}
+                </li>
+               )
+             )
+            }
+        </ol>
     </div>   
 )
 
+export const Footer = (props) => (
+    <div>
+        <button name="back" onClick={props.onClick}>Back</button>
+    </div>
+)
+
+/* Base Elements */
+const QuestionView = (props) => (
+    <div>
+        <div>
+            <span>{props.heading}</span>
+        </div>
+        <div>
+            <span>
+                <p>{props.question}</p>
+            </span>
+        </div>
+    </div>
+)

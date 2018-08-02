@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { authenticate } from '../../../actions/auth/authenticate'
+import { authenticate } from '../../../actions/auth/authActions'
 import { LoginView } from '../../presentation/auth/LoginView'
 import Assessment from '../assessment/assessment'
 

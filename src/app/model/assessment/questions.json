@@ -2,19 +2,17 @@
     {
         "heading": "Heading",
         "question": "question",
-        "type": "bichoice",
-        "options": [
-            {
-                "label": "yes",
+        "type": "bi",
+        "options": {
+           "yes": {
                 "value": 0,
                 "isCorrect": false
             },
-            {
-                "label": "no",
+            "no": {
                 "value": 3,
                 "isCorrect": true
             }
-        ]        
+        }
     },
     {
         "heading": "Heading 2",
@@ -22,12 +20,17 @@
         "type": "bullet",
         "options": [
             {
-                "label": "yes",
+                "answer": "this is the questions",
                 "value": 0,
                 "isCorrect": false
             },
             {
-                "label": "no",
+                "answer": "this is an option",
+                "value": 3,
+                "isCorrect": true
+            },
+            {
+                "answer": "no",
                 "value": 3,
                 "isCorrect": true
             }
