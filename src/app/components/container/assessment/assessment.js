@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { HeaderView } from '../../presentation/exam/Views'
+import { HeaderView } from '../../presentation/assessment/Views'
 
 class Exam extends PureComponent{
     constructor(props) {
@@ -9,7 +9,7 @@ class Exam extends PureComponent{
 
     render() {
        return (
-            <HeaderView username={this.props.username} />
+            <HeaderView title={"Welcome " + this.props.username} />
        )
     }
 }

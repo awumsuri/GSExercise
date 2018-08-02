@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { authenticate } from '../../../actions/auth/authenticate'
 import { LoginView } from '../../presentation/auth/LoginView'
-import Exam from '../exam/exam'
+import Assessment from '../assessment/assessment'
 
 class Login extends PureComponent {
     constructor(props) {
@@ -41,7 +41,7 @@ class Login extends PureComponent {
 
         return (
            authenticated ?
-            <Exam username={username}/> : 
+            <Assessment username={username}/> : 
             <LoginView authenticated={authenticated} onClick={this.handleSubmitClick} onChange={this.handleOnInputChange} /> 
         )
     }

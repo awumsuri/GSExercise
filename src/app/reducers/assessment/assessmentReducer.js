@@ -1,4 +1,4 @@
-export const testReducer = (state={}, action) => {
+export const assessmentReducer = (state={}, action) => {
     switch(action.type) {
         default:
             return state
