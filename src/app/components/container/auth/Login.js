@@ -24,10 +24,11 @@ class Login extends PureComponent {
     }
 
     handleClick(event) {
-        const {dispatchLogin, username, passoword, dispatch} = this.props
+        const { dispatchLogin } = this.props
+        const { username, password } = this.state
         
         event.target.value
-        dispatchLogin(username, passoword)
+        dispatchLogin(username, password)
     }
 
     render() {

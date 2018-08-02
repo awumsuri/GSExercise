@@ -7,12 +7,12 @@ export const LoginView = (props) => (
             <Input
                 type="text"
                 name="username"
-                onchange={e => props.onChange}
+                onchange={props.onChange}
             />    
             <Input
                 type="password"
                 name="password"
-                onchange={e => props.onChange}
+                onchange={props.onChange}
             /> 
         </form>
         <button onClick={props.onClick}
