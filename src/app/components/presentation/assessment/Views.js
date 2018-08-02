@@ -10,8 +10,8 @@ export const BiQuestionView = (props) => (
     <div>
         <QuestionView heading={props.heading} question={props.question}/>
         <div>
-            <button name="yes" onClick={props.onClick}> Yes </button>
-            <button name="no" onClick={props.onClick}> No </button>
+            <button data-id={props.id} name="yes" onClick={(e) => props.onClick(e)}> Yes </button>
+            <button data-id={props.id} name="no" onClick={(e) => props.onClick(e)}> No </button>
         </div>
     </div>
 )
@@ -29,6 +29,13 @@ export const MultiQuestionView = (props) => (
              )
             }
         </ol>
+        <div> 
+            {
+                props.options.map(
+                    option => <AnswerButton value={option.answer}/>
+                )
+            }
+        </div>
     </div>   
 )
 
@@ -53,4 +60,8 @@ const QuestionView = (props) => (
             </span>
         </div>
     </div>
+)
+
+const AnswerButton = (props) => (
+    <button type="button" class="someclass">{props.answer}</button>
 )

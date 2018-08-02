@@ -1,42 +1,43 @@
 [
+
     {
-        "heading": "Heading",
-        "question": "question",
-        "type": "bi",
-        "options": {
-           "yes": {
+        "heading": "Heading 1",
+        "question": "question 1",        
+        "hasMultipleChoiceList": false,                
+        "options": [
+            {
                 "value": 0,
-                "isCorrect": false,
-                "id": 4
+                "id": 0,
+                "buttonValue": "Yes"
             },
-            "no": {
+            {
                 "value": 3,
-                "isCorrect": true,
-                "id": 5
+                "id": 1,
+                "buttonValue": "No"
             }
-        }
+        ]        
     },
     {
         "heading": "Heading 2",
         "question": "question 2",
-        "type": "bullet",
+        "hasMultiChoiceList": true,                
         "options": [
             {
                 "answer": "this is the questions",
                 "value": 0,
-                "isCorrect": false,
-                "id": 0
+                "id": 0,
+                "buttonValue": "A"
             },
             {
                 "answer": "this is an option",
                 "value": 3,
-                "isCorrect": true,
-                "id": 1
+                "id": 1,
+                "buttonValue": "B"
             },
             {
                 "answer": "no",
                 "value": 3,
-                "isCorrect": true,
+                "buttonValue": "C",
                 "id": 2
             }
         ]        

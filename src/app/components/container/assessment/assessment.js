@@ -8,66 +8,62 @@ class Assessment extends PureComponent {
 
     constructor(props) {
         super()
-        this.questions = null
-        this.answer = this.answer.bind(this)
-        this.previousQuestion = this.previousQuestion.bind(this)
+        this.addAnswer = this.addAnswer.bind(this)
+        this.removeAnswer= this.removeAnswer.bind(this)
     }
 
     state = {
-        question: null,
-        answers: []
+        answers: undefined,
+        questions: undefined
     }
 
     componentWillMount() {
         Service.getQuestions().then(
             questions => {
-                this.questions = questions
-                this.nextQuestion()
+                this.setState({ questions })
             }
         ) 
     }
 
-    answer() {
-        const { dispatchAnswer } = this.props.asssessment
-        dispatchAnswer(answer)
+    addAnswer(event) {
+        const { dispatchAnswer } = this.props
+        const { id } = event.target
+        dispatchAnswer(id)
     }
 
-    removeAnswer() {
-        const { dispatchRemoveAnswer } = this.props.asssessment
-        dispatchRemoveAnswer(answer)
-    }
-
-    accumilateScore(sign) {
-
+    removeAnswer(event) {
+        const { dispatchRemoveAnswer } = this.props
+        const { id } = event.target
+        dispatchRemoveAnswer(id)
     }
 
     render() {    
-        const { question } = this.state
+        const { answers } = this.props
+        const { questions } = this.state
+        const question = questions ? questions[answers.length] : undefined
 
         return (
             <Fragment>
                 <HeaderView title={"welcome " + this.props.username} />
                 {
-                    (question && typeof question.type === "string") && ((question.type === "bi") ? 
-                    <BiQuestionView 
-                        heading={question.heading} 
-                        question={question.question} 
-                        onClick={this.answer}
-                    /> : 
-                    <MultiQuestionView 
+                    question && 
+                    (<MultiQuestionView 
                         heading={question.heading} 
                         question={question.question} 
                         options={question.options} 
-                        onClick={this.answer}
+                        onClick={this.addAnswer}
                     />)
                 }
-                <FooterView onClick={this.removeAnswer} page={this.state.answers.length} />
+                <FooterView onClick={this.removeAnswer} page={answers.length} />
             </Fragment>
         )
     }
 }
 
-const mapStateToProps = state => ({...state})
+const mapStateToProps = state => ({
+    answers: state.assessment
+})
+
 const mapDispatchToProps = dispatch => ( 
     { 
         dispatchAnswer: answer => dispatch(storeAnswer(answer)),
