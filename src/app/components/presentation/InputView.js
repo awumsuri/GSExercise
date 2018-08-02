@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Input = (props) => (
+export const InputView = (props) => (
     <div>
         <label>
             {props.name}

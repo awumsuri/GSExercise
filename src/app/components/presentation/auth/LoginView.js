@@ -1,15 +1,15 @@
 import React from 'react'
-import { Input } from '../Input'
+import { InputView } from '../InputView'
 
 export const LoginView = (props) => (
     <div>
         <form>
-            <Input
+            <InputView
                 type="text"
                 name="username"
                 onchange={props.onChange}
             />    
-            <Input
+            <InputView
                 type="password"
                 name="password"
                 onchange={props.onChange}

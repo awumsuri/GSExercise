@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { authenticate } from '../../../actions/auth/authenticate'
 import { LoginView } from '../../presentation/auth/LoginView'
+import Exam from '../exam/exam'
 
 class Login extends PureComponent {
     constructor(props) {
@@ -27,18 +28,19 @@ class Login extends PureComponent {
         })
     }
 
-    handleClick(event) {
+    handleClick() {
         const { dispatchLogin } = this.props
         const { username, password } = this.state
         
-        event.target.value
         dispatchLogin(username, password)
     }
 
     render() {
         const { authenticated } = this.props.auth
+        const { username } = this.state
+
         return (
-            <LoginView onClick={this.handleClick} onChange={this.handleOnInputChange} />
+           authenticate ? <Exam username={username}/> : <LoginView onClick={this.handleClick} onChange={this.handleOnInputChange} /> 
         )
     }
 }
