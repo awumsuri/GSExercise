@@ -19,7 +19,7 @@ class Results extends PureComponent {
     }
 
     getTotalScore(answered) {
-        return  answered.reduce((cumm, cur) => cumm.value + cur.value)
+        return  answered.reduce((cumm, cur) => cumm + cur.value, 0)
     }
 
     render() {
