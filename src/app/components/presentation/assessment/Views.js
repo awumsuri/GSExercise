@@ -6,7 +6,6 @@ export const HeaderView = (props) => (
     </div>
 )
 
-
 export const BiQuestionView = (props) => (
     <div>
         <QuestionView heading={props.heading} question={props.question}/>
@@ -51,8 +50,45 @@ export const FooterView = (props) => (
     <div>
         {
             (props.page > 0) && 
-            (<button name="back" onClick={props.onClick}>Back</button>)
+            (<button name="back" 
+                onClick={props.onClick}
+              >
+                Back
+            </button>)
         }
+    </div>
+)
+
+export const ResultView = (props) => (
+    <div>
+        <ul>
+            <ul>
+                <li>
+                    <span>Question</span>
+                </li>
+                <li>
+                  <span>Answered</span>
+                 </li>
+                     <li>
+                     <span>Points</span>
+                </li>
+            </ul>
+
+            {
+                props.answered.map(
+                    (answer, index) => (
+                        <li key={index} style={{display: "grid"}}>
+                            <div>
+                                <span>{answer.value}</span>
+                           </div>
+                            <div>
+                                <span>{answer.buttonValue}</span>
+                           </div>
+                        </li>
+                    )
+                )
+            }
+        </ul>
     </div>
 )
 

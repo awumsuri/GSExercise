@@ -30,7 +30,7 @@ class Assessment extends PureComponent {
     addAnswerId(event) {
         const { dispatchAnswer } = this.props
         const { value } = event.target.attributes['data-id']
-        dispatchAnswer(value)
+        dispatchAnswer(parseInt(value))
     }
 
     removeAnswerId(event) {
@@ -42,7 +42,7 @@ class Assessment extends PureComponent {
         const { answers } = this.props
         const { questions } = this.state
         const question = questions ? questions[answers.length] : undefined
-        const isComplete = question ? answers.length === questions.length : false
+        const isComplete = questions ? answers.length === questions.length : false
 
         return (
             <Fragment>
@@ -54,7 +54,7 @@ class Assessment extends PureComponent {
                     removeAnswerId={this.removeAnswerId}
                     page={answers.length}
                 />
-                <Results answers={answers} isComplete={isComplete}/>
+                <Results answers={answers} questions={questions} isComplete={isComplete}/>
             </Fragment>
         )
     }

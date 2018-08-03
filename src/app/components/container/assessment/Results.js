@@ -1,17 +1,37 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
+import { ResultView } from '../../presentation/assessment/Views'
 
 class Results extends PureComponent {
-    constructor(props) {
-        super(props)
-        this.answers = props.answers      
+
+    filterResults(questions, answers) {
+        const filterAnswered = (question) => {
+            for(const answer of answers) {
+                if (answer === question.id) {
+                    return true
+                }
+            }
+        }
+
+        return questions.reduce(
+            (cumm, current) => 
+                [ ...cumm, ...current.options], []
+        ).filter(filterAnswered)
     }
 
     render() {
-        const { answers, isComplete } = this.props
+        const { answers, questions, isComplete } = this.props       
+        const answeredObject = isComplete ? this.filterResults(questions, answers) : []
+
+        if (!this.props.isComplete) {
+            return <div></div>
+        }
+
         return(
             <div>
-                {
-                  isComplete && ( " Results")  
+                {                    
+                    isComplete && (
+                        <ResultView answered={answeredObject} />
+                    ) 
                 }
             </div>
         )
