@@ -54,9 +54,8 @@ class Assessment extends PureComponent {
                     removeAnswerId={this.removeAnswerId}
                     page={answers.length}
                 />
-                
-                {isComplete && <Results answers={answers} questions={questions} />}
-                {questions && <PageStatus page={answers.length} pages={questions.length} /> }
+            {isComplete && (<Results answers={answers} questions={questions} />)}
+            {questions && <PageStatus page={answers.length} pages={questions.length} />}
             </Fragment>
         )
     }

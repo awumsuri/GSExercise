@@ -18,13 +18,20 @@ class Results extends PureComponent {
         ).filter(filterAnswered)
     }
 
+    getTotalScore(answered) {
+        return  answered.reduce((cumm, cur) => cumm.value + cur.value)
+    }
+
     render() {
         const { answers, questions} = this.props       
         const answeredObject =  this.filterResults(questions, answers)
 
         return(
             <div>
-                <ResultView answered={answeredObject} /> 
+                <ResultView 
+                    answered={answeredObject} 
+                    total={this.getTotalScore(answeredObject)} 
+                /> 
             </div>
         )
     }

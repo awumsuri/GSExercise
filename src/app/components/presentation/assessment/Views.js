@@ -48,7 +48,7 @@ export const MultiQuestionView = (props) => (
 
 export const PageStatus = (props) => (
     <div>
-        <span>{props.page + 1} / {props.pages} </span>
+        <span>{props.page + 1} / {props.pages + 1} </span>
     </div>
 )
 
@@ -74,9 +74,9 @@ export const ResultView = (props) => (
                 </li>
                 <li>
                   <span>Answered</span>
-                 </li>
-                     <li>
-                     <span>Points</span>
+                </li>
+                    <li>
+                        <span>Points</span>
                 </li>
             </ul>
 
@@ -85,15 +85,24 @@ export const ResultView = (props) => (
                     (answer, index) => (
                         <li key={index} style={{display: "grid"}}>
                             <div>
+                                <span>{index + 1}</span>
+                            </div>
+                            <div>
                                 <span>{answer.value}</span>
-                           </div>
-                           8 <div>
+                            </div>
+                            <div>
                                 <span>{answer.buttonValue}</span>
-                           </div>
+                            </div>
                         </li>
+
                     )
                 )
             }
+            <div>
+                <span>Total Score
+                    <span>{props.total}</span>
+                </span>
+            </div>
         </ul>
     </div>
 )

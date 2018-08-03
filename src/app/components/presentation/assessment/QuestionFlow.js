@@ -4,7 +4,7 @@ import { MultiQuestionView, FooterView } from './Views'
 export const QuestionFlow = (props) => (
     <div>
         {
-            (!props.isComplete && props.question) && 
+            (props.question) && 
             (<Fragment>
                 <MultiQuestionView 
                     question={props.question}  
