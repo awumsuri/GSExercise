@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { HeaderView } from '../../presentation/assessment/Views'
+import { HeaderView, PageStatus } from '../../presentation/assessment/Views'
 import { QuestionFlow } from '../../presentation/assessment/QuestionFlow'
 import Service from '../../../services/assessment/'
 import { storeAnswer, removeAnswer } from '../../../actions/assessment/assessmentActions'
@@ -54,7 +54,9 @@ class Assessment extends PureComponent {
                     removeAnswerId={this.removeAnswerId}
                     page={answers.length}
                 />
-                <Results answers={answers} questions={questions} isComplete={isComplete}/>
+                
+                {isComplete && <Results answers={answers} questions={questions} />}
+                {questions && <PageStatus page={answers.length} pages={questions.length} /> }
             </Fragment>
         )
     }

@@ -19,20 +19,12 @@ class Results extends PureComponent {
     }
 
     render() {
-        const { answers, questions, isComplete } = this.props       
-        const answeredObject = isComplete ? this.filterResults(questions, answers) : []
-
-        if (!this.props.isComplete) {
-            return <div></div>
-        }
+        const { answers, questions} = this.props       
+        const answeredObject =  this.filterResults(questions, answers)
 
         return(
             <div>
-                {                    
-                    isComplete && (
-                        <ResultView answered={answeredObject} />
-                    ) 
-                }
+                <ResultView answered={answeredObject} /> 
             </div>
         )
     }

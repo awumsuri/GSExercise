@@ -46,6 +46,12 @@ export const MultiQuestionView = (props) => (
     </div>   
 )
 
+export const PageStatus = (props) => (
+    <div>
+        <span>{props.page + 1} / {props.pages} </span>
+    </div>
+)
+
 export const FooterView = (props) => (
     <div>
         {
@@ -81,7 +87,7 @@ export const ResultView = (props) => (
                             <div>
                                 <span>{answer.value}</span>
                            </div>
-                            <div>
+                           8 <div>
                                 <span>{answer.buttonValue}</span>
                            </div>
                         </li>
