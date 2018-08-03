@@ -12,10 +12,8 @@ class Results extends PureComponent {
             }
         }
 
-        return questions.reduce(
-            (cumm, current) => 
-                [ ...cumm, ...current.options], []
-        ).filter(filterAnswered)
+    return  questions.reduce((cumm, current) => [ ...cumm, ...current.options], [])
+            .filter(filterAnswered)
     }
 
     getTotalScore(answered) {
