@@ -4,6 +4,7 @@
         "heading": "Heading 1",
         "question": "question 1",        
         "hasMultipleChoiceList": false,                
+        "orderType": "A",
         "options": [
             {
                 "value": 0,
@@ -21,24 +22,25 @@
         "heading": "Heading 2",
         "question": "question 2",
         "hasMultiChoiceList": true,                
+        "orderType": "A",
         "options": [
             {
                 "answer": "this is the questions",
                 "value": 0,
-                "id": 0,
+                "id": 4,
                 "buttonValue": "A"
             },
             {
                 "answer": "this is an option",
                 "value": 3,
-                "id": 1,
+                "id": 5,
                 "buttonValue": "B"
             },
             {
                 "answer": "no",
                 "value": 3,
                 "buttonValue": "C",
-                "id": 2
+                "id": 6
             }
         ]        
     }

@@ -1,10 +1,6 @@
 export const NEXT_QUESTION = "NEXT_QUESTION"
 export const REMOVE_ANSWER = "REMOVE_ANSWER"
 
-const initialState = {
-    answer: []
-}
-
 export const assessmentReducer = (state=[], action) => {
     switch(action.type) {
         case NEXT_QUESTION:
@@ -13,9 +9,10 @@ export const assessmentReducer = (state=[], action) => {
                 action.answer
             ]
         case REMOVE_ANSWER:
-            return state.filter(
-                answer => answer.id !== action.answer.id
-            )
+            if (state.length) {
+                return state.slice(0, state.length -2)
+            }
+            return state
         default:
             return state
     }

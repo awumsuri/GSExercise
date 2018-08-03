@@ -6,6 +6,5 @@ export const storeAnswer = (answer) => ({
 })
 
 export const removeAnswer = (answer) => ({
-    type: REMOVE_ANSWER,
-    answer
+    type: REMOVE_ANSWER
 })

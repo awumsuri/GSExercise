@@ -6,6 +6,7 @@ export const HeaderView = (props) => (
     </div>
 )
 
+
 export const BiQuestionView = (props) => (
     <div>
         <QuestionView heading={props.heading} question={props.question}/>
@@ -17,23 +18,30 @@ export const BiQuestionView = (props) => (
 )
 
 export const MultiQuestionView = (props) => (
-    <div>
-        <QuestionView heading={props.heading} question={props.question}/>
-        <ol type="A">
-            {props.options.map(
-                (option, index) => (
-                <li key={index} onClick={props.onClick}>
-                    {option.answer}
-                </li>
-               )
-             )
-            }
-        </ol>
-        <div> 
-            {
-                props.options.map(
-                    option => <AnswerButton value={option.answer}/>
+    <div>        
+        <QuestionView heading={props.question.heading} question={props.question.question}/>
+        {props.question.hasMultiChoiceList && (<ol type={props.question.orderType}>
+               {props.question.options.map(
+                    (option, index) => (
+                        <li key={index} onClick={props.onClick}>
+                            {option.answer}
+                        </li>
+                    )
                 )
+               }
+            </ol>
+          )
+        }
+        <div>
+            { 
+                props.question.options.map(
+                    (option, index) => <AnswerButton 
+                        value={option.buttonValue} 
+                        onClick={props.onClick}
+                        key={index}
+                        id={option.id}
+                    />
+                 )
             }
         </div>
     </div>   
@@ -63,5 +71,11 @@ const QuestionView = (props) => (
 )
 
 const AnswerButton = (props) => (
-    <button type="button" class="someclass">{props.answer}</button>
+    <button data-id={props.id} 
+        type="button" 
+        className="someclass" 
+        onClick={event => props.onClick(event)}
+    >
+        {props.value}
+   </button>
 )
