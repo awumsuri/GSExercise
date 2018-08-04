@@ -70,6 +70,9 @@ export const ResultView = (props) => (
         <ul>
             <ul>
                 <li>
+                    <span>#</span>
+                </li>
+                <li>
                     <span>Question</span>
                 </li>
                 <li>
@@ -86,6 +89,9 @@ export const ResultView = (props) => (
                         <li key={index} style={{display: "grid"}}>
                             <div>
                                 <span>{index + 1}</span>
+                            </div>
+                            <div>
+                                <span>{props.questions[index].question}</span>
                             </div>
                             <div>
                                 <span>{answer.value}</span>

@@ -10,7 +10,7 @@ export const assessmentReducer = (state=[], action) => {
             ]
         case REMOVE_ANSWER:
             if (state.length) {
-                return state.slice(0, state.length -2)
+                return state.slice(0, state.length -1)
             }
             return state
         default:

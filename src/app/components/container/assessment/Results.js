@@ -29,6 +29,7 @@ class Results extends PureComponent {
                 <ResultView 
                     answered={answeredObject} 
                     total={this.getTotalScore(answeredObject)} 
+                    questions={questions}
                 /> 
             </div>
         )
