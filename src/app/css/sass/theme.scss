@@ -14,9 +14,14 @@ input {
     color: black;
     font-weight: bold;    
     border-radius: 5px;
+    background-color: white;
+    margin: 3px;
 }
 li {
     margin: 5px;
+}
+* {
+    box-sizing: border-box;
 }
 
 

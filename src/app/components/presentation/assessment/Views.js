@@ -65,9 +65,10 @@ export const FooterView = (props) => (
 export const ResultView = (props) => (
     <div className="container">
         <BootstrapTable data={props.answered} striped hover>
-            <TableHeaderColumn isKey dataField='id'>Question</TableHeaderColumn>
+            <TableHeaderColumn width="30" isKey dataField='index'>#</TableHeaderColumn>
+            <TableHeaderColumn width="350" dataField='question'>Question</TableHeaderColumn>
             <TableHeaderColumn dataField='answer'>Answer</TableHeaderColumn>
-            <TableHeaderColumn dataField='value'>Points</TableHeaderColumn>
+            <TableHeaderColumn width="50" dataField='value'>Points</TableHeaderColumn>
         </BootstrapTable>
         <div>
             <span>Score: {props.result}/{props.bestPossibleScore}</span>

@@ -4,15 +4,27 @@ import { ResultView } from '../../presentation/assessment/Views'
 class Results extends PureComponent {
 
     filterResults(allAnswers, answers) {
-        const filterAnswered = (question) => {
-            for(const answer of answers) {
-                if (answer === question.id) {
-                    return true
+        return allAnswers.filter(
+            (question) => {
+                for(const answer of answers) {
+                    if (answer === question.id) {
+                        return true
+                    }
                 }
-            }
-        }
+            } 
+        )
+    }
 
-    return allAnswers.filter(filterAnswered)
+    addQuestionNumberToAnswered(questions,answeredObject) {
+        return answeredObject.map(
+            (answer, index) => (
+                {
+                    ...answer,
+                    index: index + 1,
+                    question: questions[index].heading
+                }
+            )
+        )
     }
 
     getAllAnswers(questions) {
@@ -30,7 +42,8 @@ class Results extends PureComponent {
     render() {
         const { answers, questions} = this.props  
         const allAnswers =  this.getAllAnswers(questions)   
-        const answeredObject =  this.filterResults(allAnswers, answers)
+        const answeredObject =  this.addQuestionNumberToAnswered(questions, this.filterResults(allAnswers, answers))
+        //answeredObject = this.addQuestionNumberToAnswered(questions, answeredObject)
 
         return(
             <div>

@@ -1,7 +1,7 @@
 .status {
   color: black;
   display: flex;
-  height: 100px; }
+  height: 70px; }
 
 .page-status {
   float: right; }
@@ -20,7 +20,7 @@
 
 .container {
   background-color: white;
-  max-width: 700px;
+  max-width: 900px;
   min-width: 400px;
   border-radius: 5px;
   padding: 10px;
@@ -40,4 +40,16 @@
 .answer-button {
   width: 100px;
   height: 50px;
+  margin: 5px; }
+
+.login-container {
+  color: black;
+  background-color: #444;
+  margin: 15px;
+  height: 100px;
+  border-radius: 3px; }
+
+.login-btn {
+  display: flex;
+  justify-content: center;
   margin: 5px; }

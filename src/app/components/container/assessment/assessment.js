@@ -47,7 +47,8 @@ class Assessment extends PureComponent {
         return (
             <div>
                 <HeaderView title={"Welcome " + this.props.fullName} />
-                {!isComplete && <QuestionFlow 
+                {!isComplete && 
+                <QuestionFlow 
                     question={question} 
                     addAnswerId={this.addAnswerId} 
                     removeAnswerId={this.removeAnswerId}
