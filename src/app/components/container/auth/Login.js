@@ -36,12 +36,11 @@ class Login extends PureComponent {
     }
 
     render() {
-        const { authenticated } = this.props.auth
-        const { username } = this.state
+        const { authenticated, user } = this.props.auth
 
         return (
            authenticated ?
-            <Assessment username={username}/> : 
+            <Assessment username={user.name}/> : 
             <LoginView authenticated={authenticated} 
                 onClick={this.handleSubmitClick} 
                 onChange={this.handleOnInputChange} 

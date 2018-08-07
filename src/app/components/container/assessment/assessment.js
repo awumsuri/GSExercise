@@ -1,6 +1,6 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { HeaderView, PageStatus } from '../../presentation/assessment/Views'
+import { HeaderView } from '../../presentation/assessment/Views'
 import { QuestionFlow } from '../../presentation/assessment/QuestionFlow'
 import Service from '../../../services/assessment/'
 import { storeAnswer, removeAnswer } from '../../../actions/assessment/assessmentActions'
@@ -8,7 +8,7 @@ import Results  from './Results'
 
 class Assessment extends PureComponent {
 
-    constructor(props) {
+    constructor() {
         super()
         this.addAnswerId = this.addAnswerId.bind(this)
         this.removeAnswerId = this.removeAnswerId.bind(this)
@@ -30,7 +30,7 @@ class Assessment extends PureComponent {
     addAnswerId(event) {
         const { dispatchAnswer } = this.props
         const { value } = event.target.attributes['data-id']
-        dispatchAnswer(parseInt(value))
+        dispatchAnswer(parseInt(value, 10))
     }
 
     removeAnswerId(event) {
@@ -45,18 +45,21 @@ class Assessment extends PureComponent {
         const isComplete = questions ? answers.length === questions.length : false
 
         return (
-            <Fragment>
-                <HeaderView title={"welcome " + this.props.username} />
+            <div>
+                <HeaderView title={"Welcome " + this.props.username} />
                 <QuestionFlow 
                     isComplete={isComplete}
                     question={question} 
                     addAnswerId={this.addAnswerId} 
                     removeAnswerId={this.removeAnswerId}
                     page={answers.length}
+                    pages={questions ? questions.length : 0}
                 />
-            {isComplete && (<Results answers={answers} questions={questions} />)}
-            {questions && <PageStatus page={answers.length} pages={questions.length} />}
-            </Fragment>
+                {isComplete && (<Results 
+                    answers={answers} 
+                    questions={questions} 
+                />)}
+            </div>
         )
     }
 }
@@ -71,6 +74,5 @@ const mapDispatchToProps = dispatch => (
         dispatchRemoveAnswer: () => dispatch(removeAnswer())
     }
 )
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Assessment)

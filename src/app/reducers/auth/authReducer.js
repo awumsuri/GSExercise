@@ -5,7 +5,8 @@ export const authReducer =  (state={}, action) => {
         case LOGIN:
             return {
                 ...state,
-                authenticated: action.authenticated
+                authenticated: action.authenticated,
+                user: action.user
             }
         default: 
             return state

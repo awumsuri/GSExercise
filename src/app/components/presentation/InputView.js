@@ -1,10 +1,11 @@
 import React from 'react'
+import { Label } from 'react-bootstrap'
 
 export const InputView = (props) => (
     <div>
-        <label>
+        <Label bsStyle="primary">
             {props.name}
-        </label>
+        </Label>
         <input
             type={props.type}
             name={props.name}

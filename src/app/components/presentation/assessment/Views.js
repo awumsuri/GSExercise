@@ -1,18 +1,9 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 
 export const HeaderView = (props) => (
-    <div>
+    <div className="status login-status">
         <span>{props.title}</span>
-    </div>
-)
-
-export const BiQuestionView = (props) => (
-    <div>
-        <QuestionView heading={props.heading} question={props.question}/>
-        <div>
-            <button data-id={props.id} name="yes" onClick={(e) => props.onClick(e)}> Yes </button>
-            <button data-id={props.id} name="no" onClick={(e) => props.onClick(e)}> No </button>
-        </div>
     </div>
 )
 
@@ -31,23 +22,28 @@ export const MultiQuestionView = (props) => (
             </ol>
           )
         }
-        <div>
-            { 
-                props.question.options.map(
-                    (option, index) => <AnswerButton 
-                        value={option.buttonValue} 
-                        onClick={props.onClick}
-                        key={index}
-                        id={option.id}
-                    />
-                 )
-            }
-        </div>
     </div>   
 )
 
+export const ButtonView = (props) => (
+   <div className="answer-buttons">
+       { 
+           props.options.map(
+               (option, index) => 
+               <AnswerButton 
+                   value={option.buttonValue} 
+                   onClick={props.onClick}
+                   key={index}
+                   id={option.id}
+               />
+            )
+       }
+   </div>
+
+)
+
 export const PageStatus = (props) => (
-    <div>
+    <div className="status page-status">
         <span>{props.page + 1} / {props.pages + 1} </span>
     </div>
 )
@@ -56,11 +52,11 @@ export const FooterView = (props) => (
     <div>
         {
             (props.page > 0) && 
-            (<button name="back" 
+            (<Button name="back" 
                 onClick={props.onClick}
               >
                 Back
-            </button>)
+            </Button>)
         }
     </div>
 )
@@ -117,7 +113,7 @@ export const ResultView = (props) => (
 const QuestionView = (props) => (
     <div>
         <div>
-            <span>{props.heading}</span>
+            <span className="heading"><p>{props.heading}</p></span>
         </div>
         <div>
             <span>
@@ -128,11 +124,11 @@ const QuestionView = (props) => (
 )
 
 const AnswerButton = (props) => (
-    <button data-id={props.id} 
+    <Button data-id={props.id} 
         type="button" 
-        className="someclass" 
+        className="answer-button" 
         onClick={event => props.onClick(event)}
     >
         {props.value}
-   </button>
+   </Button>
 )

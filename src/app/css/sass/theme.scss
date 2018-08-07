@@ -1,0 +1,19 @@
+$fonts: Helvetica, sans-serif;
+
+body {
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    font: 100% $fonts;
+    color: black;
+    font-size: 15px;
+    min-height: 26em;
+}
+input {
+    color: black;
+    font-weight: bold;    
+    border-radius: 5px;
+}
+
+

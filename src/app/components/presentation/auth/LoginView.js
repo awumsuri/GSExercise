@@ -1,5 +1,6 @@
 import React from 'react'
 import { InputView } from '../InputView'
+import { Button } from 'react-bootstrap'
 
 export const LoginView = (props) => (
     <div>
@@ -15,9 +16,17 @@ export const LoginView = (props) => (
                 onchange={props.onChange}
             /> 
         </form>
-        <button type="button" onClick={props.onClick}>Submit</button>   
+        <Button
+            bsSize="small"
+            bsStyle="primary " 
+            type="button" 
+            onClick={props.onClick}
+        >Submit
+        </Button>   
         {(props.authenticated === false) && (
-            <div><span>Incorrect Creditentials</span></div>
+            <div>
+                <span className="error">Incorrect Creditentials</span>
+            </div>
          )}
     </div>
 )
