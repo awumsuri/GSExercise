@@ -17,11 +17,11 @@ class Results extends PureComponent {
 
     addQuestionNumberToAnswered(questions,answeredObject) {
         return answeredObject.map(
-            (answer, index) => (
+            (answer, arrIndex) => (
                 {
                     ...answer,
-                    index: index + 1,
-                    question: questions[index].heading
+                    index: arrIndex + 1,
+                    question: questions[arrIndex].heading
                 }
             )
         )
@@ -43,7 +43,6 @@ class Results extends PureComponent {
         const { answers, questions} = this.props  
         const allAnswers =  this.getAllAnswers(questions)   
         const answeredObject =  this.addQuestionNumberToAnswered(questions, this.filterResults(allAnswers, answers))
-        //answeredObject = this.addQuestionNumberToAnswered(questions, answeredObject)
 
         return(
             <div>

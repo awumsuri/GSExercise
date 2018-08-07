@@ -6,6 +6,11 @@
 
 .page-status {    
     float: right;
+    display: inline;
+    font-size: 13px;
+    height: 0;
+    font-weight: 100;
+    margin-top: -20px;
 }
 
 .login-status {
@@ -62,5 +67,9 @@
     display: flex;
     justify-content: center;
     margin: 5px;
+}
+
+.question-heading {
+
 }
 

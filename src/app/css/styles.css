@@ -4,7 +4,12 @@
   height: 70px; }
 
 .page-status {
-  float: right; }
+  float: right;
+  display: inline;
+  font-size: 13px;
+  height: 0;
+  font-weight: 100;
+  margin-top: -20px; }
 
 .login-status {
   font-size: 25px;

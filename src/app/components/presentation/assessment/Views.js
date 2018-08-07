@@ -10,7 +10,13 @@ export const HeaderView = (props) => (
 
 export const MultiQuestionView = (props) => (
     <div>        
-        <QuestionView heading={props.question.heading} question={props.question.question}/>
+        <QuestionView 
+            heading={props.question.heading} 
+            question={props.question.question}
+            page={props.page}
+            pages={props.pages}
+        />
+
         {props.question.hasMultiChoiceList && (
             <ol type={props.question.orderType}>
                {props.question.options.map(
@@ -78,7 +84,8 @@ export const ResultView = (props) => (
 
 /* Base Elements */
 const QuestionView = (props) => (
-    <div>
+    <div className="question-heading">
+        <PageStatus page={props.page} pages={props.pages} />
         <div>
             <span className="heading"><p>{props.heading}</p></span>
         </div>
@@ -87,6 +94,7 @@ const QuestionView = (props) => (
                 <p>{props.question}</p>
             </span>
         </div>
+        
     </div>
 )
 

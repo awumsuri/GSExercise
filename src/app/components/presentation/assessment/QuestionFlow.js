@@ -1,17 +1,15 @@
 import React from 'react'
-import { MultiQuestionView, FooterView, ButtonView, PageStatus } from './Views'
+import { MultiQuestionView, FooterView, ButtonView } from './Views'
 
 export const QuestionFlow = (props) => (
     <div className="container">
         {
             (props.question) && 
             (<div>                
-                <PageStatus 
-                    page={props.page} 
-                    pages={props.pages} 
-                />
                 <MultiQuestionView 
                     question={props.question}  
+                    page={props.page}
+                    pages={props.pages}
                 /> 
                 <ButtonView 
                     options={props.question.options} 
