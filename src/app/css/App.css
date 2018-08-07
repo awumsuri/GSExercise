@@ -16,12 +16,16 @@
   justify-content: center;
   margin: 15px; }
 
+.question {
+  text-align: center; }
+
 .heading {
   font-weight: bold;
   font-size: 18px;
   display: flex;
   justify-content: center;
-  margin: 20px; }
+  margin: 20px;
+  text-align: center; }
 
 .heading p {
   overflow: hidden;
@@ -47,6 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 30px;
   min-width: 300px; }
 
 .answer-button {

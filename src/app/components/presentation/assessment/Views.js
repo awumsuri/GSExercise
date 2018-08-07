@@ -84,7 +84,7 @@ export const ResultView = (props) => (
 
 /* Base Elements */
 const QuestionView = (props) => (
-    <div className="question-heading">
+    <div className="question">
         <PageStatus page={props.page} pages={props.pages} />
         <div>
             <span className="heading"><p>{props.heading}</p></span>
