@@ -7,13 +7,16 @@
         "orderType": "A",
         "options": [
             {
+                "answer": "Yes",
                 "value": 0,
                 "id": 0,
                 "buttonValue": "Yes"
             },
             {
+                "answer": "No",
                 "value": 3,
                 "id": 1,
+                "isBestAnswer": true,
                 "buttonValue": "No"
             }
         ]        
@@ -34,11 +37,12 @@
                 "answer": "An vero patrioque consetetur per, exerci incorrupte cotidieque qui eu, sea dicta mazim senserit ne. An mel illud splendide,",
                 "value": 3,
                 "id": 55,
+                "isBestAnswer": true,
                 "buttonValue": "B"
             },
             {
                 "answer": " ad placerat assentior, brute appareat mei ex. An blandit delectus sea, mel harum labores et, te novum numquam dissentiunt per. Patrioque incorrupte cu quo, vero partiendo",
-                "value": 3,
+                "value": 2,
                 "buttonValue": "C",
                 "id": 62
             }
@@ -60,11 +64,12 @@
                 "answer": " ne errem nullam percipitur has. Nostro everti an mel, falli invidunt ei eos, sit falli deleniti eloquentiam ut.",
                 "value": 3,
                 "id": 53,
+                "isBestAnswer": true,
                 "buttonValue": "B"
             },
             {
                 "answer": "Vix ut utroque persecuti, sit legimus impedit necessitatibus te. Corpora commune ",
-                "value": 3,
+                "value": 2,
                 "buttonValue": "C",
                 "id": 9
             }
@@ -84,13 +89,14 @@
             },
             {
                 "answer": "Nam commodo similique no, cu odio fabulas salutatus sit. In unum justo equidem cum",
-                "value": 3,
+                "value": 2,
                 "id": 15,
                 "buttonValue": "B"
             },
             {
                 "answer": "vis choro omnesque ne. An graece tincidunt incorrupte nam. Adhuc dicat ad vel",
                 "value": 3,
+                "isBestAnswer": true,
                 "buttonValue": "C",
                 "id": 23
             }
@@ -104,19 +110,20 @@
         "options": [
             {
                 "answer": " Mei an primis officiis, sed ad molestiae voluptaria r",
-                "value": 0,
+                "value": 3,
                 "id": 43,
+                "isBestAnswer": true,
                 "buttonValue": "A"
             },
             {
                 "answer": "Duo in nostro deleniti, at nec meis vituperata disputationi",
-                "value": 3,
+                "value": 0,
                 "id": 59,
                 "buttonValue": "B"
             },
             {
                 "answer": "Duo in nostro deleniti, at nec meis vituperata disputationi",
-                "value": 30,
+                "value": 1,
                 "buttonValue": "C",
                 "id": 632
             }
@@ -129,11 +136,15 @@
         "orderType": "A",
         "options": [
             {
+                "answer": "Yes",
                 "value": 3,
                 "id": 100,
+                "isBestAnswer": true,
                 "buttonValue": "Yes"
             },
             {
+                "answer": "No",
+                "value": 0,
                 "value": 2,
                 "id": 189,
                 "buttonValue": "No"

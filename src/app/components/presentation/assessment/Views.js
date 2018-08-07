@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Glyphicon } from 'react-bootstrap'
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
 export const HeaderView = (props) => (
     <div className="status login-status">
@@ -10,7 +11,8 @@ export const HeaderView = (props) => (
 export const MultiQuestionView = (props) => (
     <div>        
         <QuestionView heading={props.question.heading} question={props.question.question}/>
-        {props.question.hasMultiChoiceList && (<ol type={props.question.orderType}>
+        {props.question.hasMultiChoiceList && (
+            <ol type={props.question.orderType}>
                {props.question.options.map(
                     (option, index) => (
                         <li key={index} onClick={props.onClick}>
@@ -26,7 +28,7 @@ export const MultiQuestionView = (props) => (
 )
 
 export const ButtonView = (props) => (
-   <div className="answer-buttons">
+   <div className="answer-buttons-container">
        { 
            props.options.map(
                (option, index) => 
@@ -39,7 +41,6 @@ export const ButtonView = (props) => (
             )
        }
    </div>
-
 )
 
 export const PageStatus = (props) => (
@@ -55,57 +56,22 @@ export const FooterView = (props) => (
             (<Button name="back" 
                 onClick={props.onClick}
               >
-                Back
+                <Glyphicon glyph="glyphicon glyphicon-triangle-left"/>
             </Button>)
         }
     </div>
 )
 
 export const ResultView = (props) => (
-    <div>
-        <ul>
-            <ul>
-                <li>
-                    <span>#</span>
-                </li>
-                <li>
-                    <span>Question</span>
-                </li>
-                <li>
-                  <span>Answered</span>
-                </li>
-                    <li>
-                        <span>Points</span>
-                </li>
-            </ul>
-
-            {
-                props.answered.map(
-                    (answer, index) => (
-                        <li key={index} style={{display: "grid"}}>
-                            <div>
-                                <span>{index + 1}</span>
-                            </div>
-                            <div>
-                                <span>{props.questions[index].question}</span>
-                            </div>
-                            <div>
-                                <span>{answer.value}</span>
-                            </div>
-                            <div>
-                                <span>{answer.buttonValue}</span>
-                            </div>
-                        </li>
-
-                    )
-                )
-            }
-            <div>
-                <span>Total Score
-                    <span>{props.total}</span>
-                </span>
-            </div>
-        </ul>
+    <div className="container">
+        <BootstrapTable data={props.answered} striped hover>
+            <TableHeaderColumn isKey dataField='id'>Question</TableHeaderColumn>
+            <TableHeaderColumn dataField='answer'>Answer</TableHeaderColumn>
+            <TableHeaderColumn dataField='value'>Points</TableHeaderColumn>
+        </BootstrapTable>
+        <div>
+            <span>Score: {props.result}/{props.bestPossibleScore}</span>
+        </div>
     </div>
 )
 
@@ -129,6 +95,6 @@ const AnswerButton = (props) => (
         className="answer-button" 
         onClick={event => props.onClick(event)}
     >
-        {props.value}
+         {props.value}
    </Button>
 )

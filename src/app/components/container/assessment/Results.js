@@ -3,7 +3,7 @@ import { ResultView } from '../../presentation/assessment/Views'
 
 class Results extends PureComponent {
 
-    filterResults(questions, answers) {
+    filterResults(allAnswers, answers) {
         const filterAnswered = (question) => {
             for(const answer of answers) {
                 if (answer === question.id) {
@@ -12,8 +12,15 @@ class Results extends PureComponent {
             }
         }
 
-    return  questions.reduce((cumm, current) => [ ...cumm, ...current.options], [])
-            .filter(filterAnswered)
+    return allAnswers.filter(filterAnswered)
+    }
+
+    getAllAnswers(questions) {
+        return questions.reduce((cumm, current) => [ ...cumm, ...current.options], [])
+    }
+
+    getTotalPossibleScore(allAnswers) {
+        return allAnswers.reduce((cumm, cur) => cumm + (cur.isBestAnswer ? cur.value : 0), 0)
     }
 
     getTotalScore(answered) {
@@ -21,15 +28,16 @@ class Results extends PureComponent {
     }
 
     render() {
-        const { answers, questions} = this.props       
-        const answeredObject =  this.filterResults(questions, answers)
+        const { answers, questions} = this.props  
+        const allAnswers =  this.getAllAnswers(questions)   
+        const answeredObject =  this.filterResults(allAnswers, answers)
 
         return(
             <div>
                 <ResultView 
                     answered={answeredObject} 
-                    total={this.getTotalScore(answeredObject)} 
-                    questions={questions}
+                    result={this.getTotalScore(answeredObject)} 
+                    bestPossibleScore={this.getTotalPossibleScore(allAnswers)}
                 /> 
             </div>
         )

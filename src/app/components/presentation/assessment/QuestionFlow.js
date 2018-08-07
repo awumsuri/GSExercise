@@ -2,7 +2,7 @@ import React from 'react'
 import { MultiQuestionView, FooterView, ButtonView, PageStatus } from './Views'
 
 export const QuestionFlow = (props) => (
-    <div className="question-container">
+    <div className="container">
         {
             (props.question) && 
             (<div>

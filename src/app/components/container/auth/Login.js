@@ -12,8 +12,6 @@ class Login extends PureComponent {
     }
 
     state = {
-        username: null,
-        password: null,
         authenthicated: false
     }
 
@@ -40,7 +38,7 @@ class Login extends PureComponent {
 
         return (
            authenticated ?
-            <Assessment username={user.name}/> : 
+            <Assessment fullName={user.name}/> : 
             <LoginView authenticated={authenticated} 
                 onClick={this.handleSubmitClick} 
                 onChange={this.handleOnInputChange} 
