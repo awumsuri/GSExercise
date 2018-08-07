@@ -3,7 +3,7 @@ import { Label } from 'react-bootstrap'
 
 export const InputView = (props) => (
     <div>
-        <Label bsStyle="outline-info">
+        <Label style={{backgroundColor: '#444'}}>
             {props.name}
         </Label>
         <input

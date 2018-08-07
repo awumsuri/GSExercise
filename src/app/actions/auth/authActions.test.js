@@ -13,7 +13,7 @@ describe("Auth Action Test", () => {
         const expectedAnswer = {
             type: ActionType.LOGIN,
             authenticated: true,
-            user: { username: 'suri', password: 'surigs', name: 'Suri Mtui' }
+            user: { username: username, password: password, name: 'Suri Mtui' }
         }
         const store = mockStore({})
 

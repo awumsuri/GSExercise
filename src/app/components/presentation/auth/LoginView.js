@@ -19,7 +19,6 @@ export const LoginView = (props) => (
         <div className="login-btn">
             <Button
                 bsSize="small"
-                bsStyle="outline-info" 
                 type="button" 
                 onClick={props.onClick}
             >Submit

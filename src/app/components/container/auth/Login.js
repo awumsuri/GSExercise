@@ -4,7 +4,7 @@ import { authenticate } from '../../../actions/auth/authActions'
 import { LoginView } from '../../presentation/auth/LoginView'
 import Assessment from '../assessment/Assessment'
 
-class Login extends PureComponent {
+export class Login extends PureComponent {
     constructor() {
         super()  
         this.handleSubmitClick = this.handleSubmitClick.bind(this)
