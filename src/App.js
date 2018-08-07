@@ -4,7 +4,7 @@ import configure from './app/config/configure'
 import Login from './app/components/container/auth/Login'
 import { Route } from 'react-router-dom'
 import './app/css/theme.css'
-import './app/css/styles.css'
+import './app/css/App.css'
 
 class App extends Component {
   render() {
