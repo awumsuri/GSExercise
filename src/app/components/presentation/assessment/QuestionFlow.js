@@ -5,7 +5,7 @@ export const QuestionFlow = (props) => (
     <div className="container">
         {
             (props.question) && 
-            (<div>
+            (<div>                
                 <PageStatus 
                     page={props.page} 
                     pages={props.pages} 

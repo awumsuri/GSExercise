@@ -45,7 +45,7 @@ export const ButtonView = (props) => (
 
 export const PageStatus = (props) => (
     <div className="status page-status">
-        <span>{props.page + 1} / {props.pages + 1} </span>
+        <span>Step {props.page + 1} of {props.pages + 1} </span>
     </div>
 )
 

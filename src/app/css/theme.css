@@ -10,8 +10,7 @@ body {
 
 input {
   color: black;
-  font-weight: bold;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: white;
   margin: 3px; }
 
