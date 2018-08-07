@@ -5,6 +5,6 @@ export const storeAnswer = (answer) => ({
     answer
 })
 
-export const removeAnswer = (answer) => ({
+export const removeAnswer = () => ({
     type: REMOVE_ANSWER
 })

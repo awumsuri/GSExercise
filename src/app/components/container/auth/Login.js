@@ -5,8 +5,8 @@ import { LoginView } from '../../presentation/auth/LoginView'
 import Assessment from '../assessment/Assessment'
 
 class Login extends PureComponent {
-    constructor(props) {
-        super(props)  
+    constructor() {
+        super()  
         this.handleSubmitClick = this.handleSubmitClick.bind(this)
         this.handleOnInputChange = this.handleOnInputChange.bind(this)    
     }
@@ -21,9 +21,7 @@ class Login extends PureComponent {
         const name = input.name
         const value = name !== 'password' ? input.value.toLowerCase() : input.value
 
-        this.setState({
-            [name]: value
-        })
+        this.setState({ [name]: value })
     }
 
     handleSubmitClick() {
@@ -39,7 +37,8 @@ class Login extends PureComponent {
         return (
            authenticated ?
             <Assessment fullName={user.name}/> : 
-            <LoginView authenticated={authenticated} 
+            <LoginView 
+                authenticated={authenticated} 
                 onClick={this.handleSubmitClick} 
                 onChange={this.handleOnInputChange} 
             /> 
