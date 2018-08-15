@@ -6,9 +6,10 @@ import { Route } from 'react-router-dom'
 import './app/css/theme.css'
 import './app/css/App.css'
 
+const store = configure.configureStore()
+
 class App extends Component {
   render() {
-    const store = configure.configureStore()
     return (
       <Provider store={store}>
          <Route path="/assessment" component={ Login } />
